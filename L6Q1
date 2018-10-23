@@ -29,6 +29,7 @@ public void main(String [] args) {
 class Lista{
     private int number;
     private Lista proximo;
+    int cont=0;
     public Lista(){
         this.number=0;
         this.proximo=null;
@@ -53,13 +54,14 @@ class Lista{
             throw new RuntimeException("Erro");
         }
     }
-    public boolean tem(int numero){
+    public int tem(int numero){
         if(this.number==numero){
-            return true;
+        	return this.cont;
         }else if(this.proximo != null){
+        	this.cont=this.cont+1;
             return this.proximo.tem(numero);
         }else{
-            return false;
+            return 0;
         }
     }
 }
